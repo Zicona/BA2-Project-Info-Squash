@@ -1,3 +1,5 @@
 1. Main : Base principale du projet, balle et paroies mises en place
 2. 02   : Balle directionnelle en fonction du côté qu'on touche + Bouton pause Resume/Restart implémenté
-3. 03   : En Cours... (Objectif : Mettre en place la classe PauseFragment pour essayer de rendre le code plus modelable)
+3. 03   : Classe PauseFragment et StopFragment pour jouer avec les menus de pause
+4. 04   : Balle infini-directionnelle, avec la précision qu'on veut et l'angle qu'on veut
+5. 05   : En Cours...
