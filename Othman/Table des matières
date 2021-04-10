@@ -1,0 +1,6 @@
+main: Code basique, balle bouge et rebondit sur des parois
+
+01 : Added features: Text information above view showing: Lives left, y coordinate of center of the ball, Score (=number of time top <Paroi> is hit)
+                     Icons/Images depending on lives left above view
+                     When a ball leaves screen (in bottom only for now): lives reduced by 1, ball disappears, a new ball appears (until no lives left)
+                     When clicking on button: bottom <Paroi> is hidden/showed
