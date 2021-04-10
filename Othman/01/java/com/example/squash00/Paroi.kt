@@ -8,10 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class Paroi (x1: Float, y1: Float, x2: Float, y2: Float,var view: DrawingView) {
+class Paroi (x1: Float, y1: Float, x2: Float, y2: Float,var view: DrawingView) { // added argument view: DrawingView to get screenWidth/screenHeight
     val hitbox = RectF(x1, y1, x2, y2)
     val paint = Paint()
-    var isOnScreen = true
+    
+    var isOnScreen = true // added variable to see if ball is dead or no
 
     fun draw(canvas: Canvas) {
         paint.color = Color.GREEN
@@ -25,8 +26,8 @@ class Paroi (x1: Float, y1: Float, x2: Float, y2: Float,var view: DrawingView) {
                 if (hitbox.width() > hitbox.height()) { // paroi horizontale
                     b.changeDirection(true)
 
-                    //if (b.current_center_y < /**/view.screenHeight / 2) { // si paroi du haut  | autre manière ? if(this == view.lesParois[0]){
-                    if(this == view.lesParois[0]){
+                    //if (b.current_center_y < /**/view.screenHeight / 2) { // si paroi du haut  
+                    if(this == view.lesParois[0]){                          // si paroi du haut  (autre manière)
                         //Score
                         view.score += 1
                     }
@@ -35,7 +36,6 @@ class Paroi (x1: Float, y1: Float, x2: Float, y2: Float,var view: DrawingView) {
                 }
             }
         }
-
 
         // si la balle sort du terrain
         if (b.current_center_y > view.screenHeight){
