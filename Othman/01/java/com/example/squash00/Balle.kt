@@ -10,9 +10,10 @@ class Balle(x: Float, y: Float, val diametre: Float) {
     val paint = Paint()
     var color = Color.RED
 
-
+    
+    
     // paroi gereballe()
-    var current_center_y = 0f
+    var current_center_y = 0f // y coordinate of center of ball
     // Score
     var isOnScreen = true
 
@@ -35,8 +36,8 @@ class Balle(x: Float, y: Float, val diametre: Float) {
         if (this.isOnScreen) {
             hitbox.offset(2 * 5.0F * dx, 2 * 5.0F * dy)
 
-            // information text
-            current_center_y = hitbox.centerY()
+            // update y coordinate of center of ball
+            current_center_y = hitbox.centerY() 
 
             for (p in lesParois) {
                 p.gereBalle(this)
