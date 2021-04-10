@@ -29,6 +29,7 @@ class DrawingView @JvmOverloads constructor (context: Context, attributes: Attri
     //var balle = Balle(random.nextFloat()*500, random.nextFloat()*1000, 50f)
     //var balle = Balle(300f, 300f, 50f)
 
+    // now using arrayList of Balle instead of unique var balle
     var lesBalles = ArrayList<Balle>()
 
     //Score
@@ -43,7 +44,7 @@ class DrawingView @JvmOverloads constructor (context: Context, attributes: Attri
     var life_icon = listOf(R.drawable.number_4,R.drawable.number_1,R.drawable.number_2,R.drawable.number_3)
 
 
-    // text y coordinate
+    // used to track y coordinate of ball on screen
     lateinit var current_ball: Balle
     // used to see if ball leaves screen (Paroi)
     var screenHeight = 0f
@@ -68,11 +69,11 @@ class DrawingView @JvmOverloads constructor (context: Context, attributes: Attri
 
             //Ball
             for (b in lesBalles)
-                if (b.isOnScreen) {
+                if (b.isOnScreen) { // added condition to draw ball
                     b.bouge(lesParois)
                     b.draw(canvas)
 
-                    if (!b.isOnScreen) {
+                    if (!b.isOnScreen) { // if the ball left the screen
                         life_left -= 1
                         if (life_left !=0){
                             lesBalles.add(Balle(300f,300f,50f))
@@ -101,26 +102,23 @@ class DrawingView @JvmOverloads constructor (context: Context, attributes: Attri
 
             // lives
             canvas.drawText("Vie : $life_left",450f,90f,textPaint)
-            // Image resolution slows down the app
-            /*var image = BitmapFactory.decodeResource(resources,life_icon[current_life])
+            
+            // Image resolution !CAREFUL! if resolution is too high, it slows down the app
+            
+            
+            var image = BitmapFactory.decodeResource(resources,life_icon[current_life])
 
-            var r = Rect(0, 0, screenWidth.toInt() + 2000, screenHeight.toInt() + 1500)
-            var l = Rect(screenWidth.toInt() - 350, 0, screenWidth.toInt() - 200, 125)
+            var r = Rect(0, 0, screenWidth.toInt() + 2000, screenHeight.toInt() + 1500) // Rectangle contains our image
+            
+            var l = Rect(screenWidth.toInt() - 350, 0, screenWidth.toInt() - 200, 125) // Fits precedent rectangle in this one
 
             canvas.drawBitmap(image, r, l, null)
 
             if (life_left != current_life) {
-
                 current_life = life_left
-            }*/
-
-
-
+            }
 
             holder.unlockCanvasAndPost(canvas)
-
-
-
         }
     }
 
@@ -158,7 +156,7 @@ class DrawingView @JvmOverloads constructor (context: Context, attributes: Attri
         val la = w*1f   // Largeur de la boite
         val l = h*1f-25f  //0.75f   // Longueur de la boite
 
-        // Score ( if ball leaves screen)
+        // used to detect when ball leaves screen + always useful anyway
         screenHeight = h.toFloat()
         screenWidth = w.toFloat()
 
