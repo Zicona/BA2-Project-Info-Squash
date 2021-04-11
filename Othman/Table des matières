@@ -4,3 +4,9 @@ main: Code basique, balle bouge et rebondit sur des parois
                      Icons/Images depending on lives left above view
                      When a ball leaves screen (in bottom only for now): lives reduced by 1, ball disappears, a new ball appears (until no lives left)
                      When clicking on button: bottom <Paroi> is hidden/showed
+                     
+02 : Added features: SuperClass SpecialObject which will herit Bonus/Malus class
+                     Bonus class : SizeUp : multiplies the current ball diameters by a size amplificator if < maxSize
+                     X coordinate (information text)
+                     deleted supportActionBar
+                     added scoring argument in Paroi class
