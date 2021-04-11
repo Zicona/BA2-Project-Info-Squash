@@ -10,3 +10,7 @@ main: Code basique, balle bouge et rebondit sur des parois
                      X coordinate (information text)
                      deleted supportActionBar
                      added scoring argument in Paroi class
+                     
+03 : Added features: Deleted SizeUp bonus class --> transformed it into SizeModifier class. 
+                          If boolean argument is true SizeModifier is considered as a bonus class (increases ball size)
+                          If boolean argument is false SizeModifier is considered as a malus class (decreases ball size)
