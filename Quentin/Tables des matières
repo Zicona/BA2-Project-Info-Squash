@@ -4,3 +4,4 @@
 4. 04   : Balle infini-directionnelle, avec la précision qu'on veut et l'angle qu'on veut
 5. 05   : - Grosse amélioration du PauseFragment -> PauseDialog, complètement customisable
           - Code rendu plus propre
+6. 06   : Amélioration du menu de pause, ajout du DialogFragment pour les paramètres
