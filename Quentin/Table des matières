@@ -6,3 +6,5 @@
           - Code rendu plus propre
 6. 06   : Amélioration du menu de pause, ajout du DialogFragment pour les paramètres
 7. 07   : Je sais pas, mais je vais faire des gros changement donc je save
+8. 08   : - Importation du travail d'Othman sur les Bonus/Malus
+          - Modification des changement de taille de balle (Méthode changeTaille())
