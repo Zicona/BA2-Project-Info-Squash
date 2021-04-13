@@ -20,8 +20,8 @@ main: Code basique, balle bouge et rebondit sur des parois
                      Modified SizeModifier class
                      Created LifeUp Bonus Class. Gives one more live when activated
                      Created DoublePoints Bonus class. For now it only gives 2 points instead of 1 while the bonus is active
-                     Created OneWayWall Malus class that uses the newly created Obstacle class: it allows makes the bound rebounds against the wall if ball comes from the bottom
+                     Created OneWayWall Malus class that uses the newly created Obstacle class: it makes the ball rebound against the wall if ball comes from the bottom
                      Note: Obstacle Class could not herit from SpecialObject AND Paroi so it only herits from Paroi but it feels kinda empty 
-                           (create Obstacle class in OneWayWall CLass?)
+                           (create Obstacle class in OneWayWall CLass ???)
                      Implemented acceleration every time the score is a multiple of 3
                      Modified a bit Paroi and Balle class for it to work with bonus/malus and acceleration
