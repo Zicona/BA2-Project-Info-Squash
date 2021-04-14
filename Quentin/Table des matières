@@ -8,3 +8,10 @@
 7. 07   : Je sais pas, mais je vais faire des gros changement donc je save
 8. 08   : - Importation du travail d'Othman sur les Bonus/Malus
           - Modification des changement de taille de balle (Méthode changeTaille())
+9. 09   : - Menu ajouté, apparait au lancement et au retour au menu depuis le menu de pause ou après avoir perdu une partie
+          - Paramètre accessible depuis le menu et la pause, même fenêtre de paramètre tout le temps
+          - Option "nouvelle partie" fonctionne désormais après avoir perdu (bug résolu)
+          - Switch dans les paramètres codés mais pas utilisés
+          - Timer implémenté pour afficher les bonus à l'écran pendant un certain temps seulement
+                    (Pas encore de temps de bonus, un bonus reste actif jusquà ce que la vie soit perdue)
+          - Apparition des bonus tous les X points implémentée, random en fonction du nombre de bonus dans la liste lesBonnus
