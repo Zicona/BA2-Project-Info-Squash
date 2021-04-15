@@ -30,10 +30,10 @@ class OneWayWall (x:Float,y: Float, diametre: Float, isGentle:Boolean = false, v
         super.gereBalle(b, view, i)
         if (isPlaying) {
             if (RectF.intersects(o.hitbox, b.hitbox)) {
-                if (b.dy == -1f && b.currentX > hitbox.left && b.currentX < hitbox.right) {
+                if (b.dy < 0f && b.currentX > hitbox.left && b.currentX < hitbox.right) {
                     b.changeDirectionParoi(true)
                 }
-                if (b.dy == -1f && b.currentX <= hitbox.left && b.dx == 1f || b.dy == -1f && b.currentX >= hitbox.right && b.dx == -1f) {
+                if (b.dy < 0f && b.currentX <= hitbox.left && b.dx > 0f || b.dy < 0f && b.currentX >= hitbox.right && b.dx < 0f) {
                     b.changeDirectionParoi(false)
                 }
             }

@@ -63,29 +63,44 @@ class DrawingView @JvmOverloads constructor(context: Context, attributes: Attrib
     var bonusPoints = DoublePoints(500f, 500f, 100f, true)
     var bonusLifeUp = LifeUp(600f, 300f, 100f, true)
     var oneWayWall = OneWayWall(500f, 300f, 100f, false, this)
+    var safeWall = SafeWall(500f, 200f, 100f, true)
     private val scoreToBonus = 5 // Nombre de points à obtenir avant qu'un nouveau bonus n'apparaisse
     var firstApparition = true
 
     // Arrays of objects used
     var lesBalles = arrayListOf<Balle>(balle)
     var lesBonus = arrayListOf<SpecialObject>(
-//            bonusSize, malusSize,
-//            bonusPoints,
-//            bonusLifeUp,
-            oneWayWall
+            bonusSize,
+            malusSize,
+            bonusPoints,
+            bonusLifeUp,
+            oneWayWall,
+            safeWall
     )
 
-    init {}
+    init {
+        // Modify Paint objects and format the future textDraws
+        backgroundPaint.color = Color.BLACK
+        textColor.color = Color.WHITE
+        textColor.textSize = 70F
+        textColor.textAlign = Paint.Align.RIGHT
+
+        for (bonus in lesBonus) {
+            when(bonus) {
+                is SizeModifier -> {
+                    if (bonus.isGentle) bonus.isActive = false else bonus.isActive = false
+                }
+                is DoublePoints -> {bonus.isActive = true}
+                is OneWayWall -> {bonus.isActive = false}
+                is SafeWall -> {bonus.isActive = false}
+                is LifeUp -> {bonus.isActive = false}
+            }
+        }
+    }
 
     fun draw() {
         if (holder.surface.isValid) {
             canvas = holder.lockCanvas()
-
-            // Modify Paint objects and format the future textDraws
-            backgroundPaint.color = Color.BLACK
-            textColor.color = Color.WHITE
-            textColor.textSize = 70F
-            textColor.textAlign = Paint.Align.RIGHT
 
             // Draw background
             canvas.drawRect(0F, 0F, canvas.width * 1F, canvas.height * 1F, backgroundPaint)
@@ -213,10 +228,16 @@ class DrawingView @JvmOverloads constructor(context: Context, attributes: Attrib
     }
     fun triggerBonusApparition() {
         val random = Random()
-        val index = (random.nextFloat()*(lesBonus.size-0.5)).toInt() // 0.5 est là pour normaliser
-        lesBonus[index].launchObject()
+        var isOk = false
+        while (!isOk) {
+            val index = (random.nextFloat()*(lesBonus.size-0.5)).toInt() // 0.5 est là pour normaliser
+            if (lesBonus[index].isActive) {
+                lesBonus[index].launchObject()
+                isOk = true
+            }
+        }
     }
-    fun triggerToastFin() { // DEBUG PURPOSE
+    fun triggerToastFin() { /** DEBUG PURPOSE **/
         Toast.makeText(context,"Fini!", Toast.LENGTH_SHORT).show()
     }
 

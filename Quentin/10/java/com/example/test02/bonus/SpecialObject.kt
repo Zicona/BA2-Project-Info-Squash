@@ -4,7 +4,6 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
-import android.widget.Toast
 import com.example.test02.game.Balle
 import com.example.test02.game.DrawingView
 
@@ -14,6 +13,15 @@ abstract class SpecialObject (x: Float, y: Float, diametre: Float, var isGentle 
     var colorBonus = Color.GREEN
     var colorMalus = Color.RED
     val hitbox = RectF(x, y, x + diametre, y + diametre)
+
+    /** GESTION PAR LES PARAMÈTRES, est-ce que ce bonus/malus peut apparaître? **/
+    var isActive = true // Gère l'effet du switch dans les options
+    var byPass = false // Permet le byPass d'une option en cas d'envie
+    /** Exemple :
+     *  Le bonus SafeWall quand il est désactivé (isActive = false) fait disparaître le mur du bas
+     *  donc "byPass" peut contrer cela en disant que même si le bonus SafeWall est inactif,
+     *  le mur du bas doit quand même apparaître.
+     * **/
 
     // Gestion des Timer et de l'affichage des bonus/malus
     var onScreen = false // Est-ce qu'on dessine le bonus/malus
@@ -75,17 +83,10 @@ abstract class SpecialObject (x: Float, y: Float, diametre: Float, var isGentle 
     }
 
     fun returnNormal(bonus: SpecialObject, view: DrawingView) {
-        if (!bonus.isPlaying){
-            if (bonus is SizeModifier) {
-                view.balle.changeTaille(0)
-            } else if (bonus is DoublePoints) {
-                for (p in view.lesParois) {
-                    p.doublePoint = false
-                }
-            }
-//        } else if() {
-//            // TODO
-//        }
+        when(bonus) {
+            is SizeModifier -> {view.balle.changeTaille(0)} // Peut-être couper en deux (Bonus/Malus) pour la gestion par les paramètres
+            is DoublePoints -> {for (p in view.lesParois) p.doublePoint = byPass}
+            is SafeWall -> {view.lesParois[2].onScreen = bonus.byPass}
         }
     }
 

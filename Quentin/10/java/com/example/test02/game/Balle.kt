@@ -19,7 +19,7 @@ class Balle(x: Float, y: Float, var diametre: Float) {
     var size = initSize
     val minSize = 50F
     val maxSize = 650F
-    val initSpeed = 10F
+    val initSpeed = 1F
     var speed = initSpeed
 
     // SizeUp Bonus
@@ -73,7 +73,7 @@ class Balle(x: Float, y: Float, var diametre: Float) {
         }
         for (i in lesBonus) {
             i.gereBalle(this, view, i)
-            if (!i.isPlaying) i.returnNormal(i, view)
+            if (!i.isPlaying || !i.isActive) i.returnNormal(i, view)
         }
     }
 

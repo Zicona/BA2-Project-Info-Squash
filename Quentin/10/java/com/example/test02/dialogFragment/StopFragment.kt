@@ -26,10 +26,10 @@ class StopFragment(drawer: DrawingView, mainActivity: MainActivity, dismiss: Boo
         builder.setMessage(
                 "Êtes-vous sûr.e de vouloir quitter?"
         )
-        builder.setPositiveButton("Quitter") { dialog, which ->
+        builder.setPositiveButton("Quitter") { _, _ ->
             exitProcess(0)
         }
-        builder.setNegativeButton("Annuler") { dialog, which ->
+        builder.setNegativeButton("Annuler") { _, _ ->
             if (weDismiss) {
                 dismiss()
             } else {

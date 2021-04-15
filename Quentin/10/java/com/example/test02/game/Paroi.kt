@@ -32,7 +32,7 @@ open class Paroi (x1: Float, y1: Float, x2: Float, y2: Float, val scoring: Boole
             }
             if (this.scoring) {
                 for (i in lesBonus) if (i is DoublePoints && i.isPlaying) doublePoint = true // Gestion du bonus DoublePoint
-                if (doublePoint) {view.score += 2} else view.score +=1
+                if (doublePoint) {view.score += 2} else view.score += 1
                 view.firstApparition = true // Permet l'apparition d'un bonus
             }
         } else {
