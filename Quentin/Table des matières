@@ -15,3 +15,7 @@
           - Timer implémenté pour afficher les bonus à l'écran pendant un certain temps seulement
                     (Pas encore de temps de bonus, un bonus reste actif jusquà ce que la vie soit perdue)
           - Apparition des bonus tous les X points implémentée, random en fonction du nombre de bonus dans la liste lesBonnus
+10. 10  : - Ajout du travail d'Othman (LifeUp, DoublePoints, OneWayWall (et Obstacle))
+          - Bug à corriger :
+                    - Taille de la balle ne change plus avec les bonus
+                    - OneWayWall laisse passez la balle dans les deux sens
