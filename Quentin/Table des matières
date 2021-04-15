@@ -19,3 +19,6 @@
           - Bug à corriger :
                     - Taille de la balle ne change plus avec les bonus
                     - OneWayWall laisse passez la balle dans les deux sens
+          - Reste à implémenter : (de chez Othman)
+                    - Modification de taille optionnel (mult/add)
+                    - Modification de vitesse optionnelle (mult/add)
