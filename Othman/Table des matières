@@ -25,3 +25,5 @@ main: Code basique, balle bouge et rebondit sur des parois
                            (create Obstacle class in OneWayWall CLass ???)
                      Implemented acceleration every time the score is a multiple of 3
                      Modified a bit Paroi and Balle class for it to work with bonus/malus and acceleration
+                     
+05 : Added features: Osu BonusClass and Raquette MalusClass added
