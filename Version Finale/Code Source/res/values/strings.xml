@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">SquashTime</string>
+    <string name="text_pause">La partie est en pause</string>
+    <string name="pause">Menu de pause</string>
+    <string name="lose">Vous avez perdu</string>
+    <string name="win">Vous avez gagné</string>
+    <string name="reset_game">Reprendre la partie!</string>
+    <string name="restart_game">Nouvelle partie</string>
+    <string name="results_format">Vous avez tiré %1$d fois, pendant un total de %2$g secondes, vous êtes à %3$d victoires d\'affilé!</string>
+    <string name="pause_button">II</string>
+    <string name="score_view">TextView</string>
+    <string name="pause_title">Pause</string>
+    <string name="pause_subtitle">Le jeu a été mis en pause</string>
+    <string name="resume_button_text">Reprendre</string>
+    <string name="restart_button_text">Recommencer</string>
+    <string name="quit_button_text">Quitter</string>
+    <string name="title_settings">Paramètres</string>
+    <string name="subtitle_settings">Voici les paramètres</string>
+    <string name="param_switch">Param</string>
+    <string name="on_off">ON/OFF</string>
+    <string name="back_menu">Menu</string>
+    <string name="game_over">Game Over</string>
+    <string name="game_over_dialog">Vous avez perdu…</string>
+    <string name="menu_title">Menu</string>
+    <string name="menu_subtitle">Choix difficilté</string>
+    <string name="easy_button_text">Facile</string>
+    <string name="medium_button_text">Moyen</string>
+    <string name="hard_button_text">Difficile</string>
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+</resources>
